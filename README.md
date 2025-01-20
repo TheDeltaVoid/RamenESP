@@ -1,2 +1,2 @@
 # RamenESP
-some code for a esp32 powerd game :) (custom design)
+Some code for a esp32 powerd game box :) (custom design)
