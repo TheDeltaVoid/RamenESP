@@ -26,9 +26,9 @@ LiquidCrystal_I2C lcd(0x27, LCD_COLS, LCD_ROWS);
 #define JOYSTICK_Y 26
 #define JOYSTICK_DOWN 25
 
-#define PAUSE_PIN 25
-#define MAIN_MENU_PIN 26
-#define SELECT_PIN 27
+#define PAUSE_PIN 32
+#define MAIN_MENU_PIN 35
+#define SELECT_PIN 34
 
 // utility functions
 namespace Utility
@@ -98,14 +98,14 @@ namespace Utility
   {
     // threshold from 0 - 1
 
-    // get axis (-512 - 512)
+    // get axis (-2048 to 2048)
     int x, y;
-    x = analogRead(JOYSTICK_X) - 512;
-    y = analogRead(JOYSTICK_Y) - 512;
+    x = analogRead(JOYSTICK_X) - 2048;
+    y = analogRead(JOYSTICK_Y) - 2048;
 
     // normalize values
-    x = x / 512;
-    y = y / 512;
+    x = x / 2048;
+    y = y / 2048;
 
     /*
     Serial.print(x);
