@@ -99,7 +99,7 @@ namespace Utility
     // threshold from 0 - 1
 
     // get axis (-2048 to 2048)
-    int x, y;
+    float x, y;
     x = analogRead(JOYSTICK_X) - 2048;
     y = analogRead(JOYSTICK_Y) - 2048;
 
@@ -107,11 +107,9 @@ namespace Utility
     x = x / 2048;
     y = y / 2048;
 
-    /*
-    Serial.print(x);
-    Serial.print(", ");
-    Serial.println(y);
-    */
+    //Serial.print(x);
+    //Serial.print(", ");
+    //Serial.println(y);
 
     // apply threshold
     if (abs(x) < threshold && abs(y) < threshold)
@@ -767,11 +765,9 @@ void setup()
 
 void loop()
 {
-  //lcd.setCursor(0, 0);
-  //lcd.print("test 1");
   delay(100);
-  Serial.println(analogRead(26));
+  Serial.println(Utility::get_swich());
 
-  SceneManager::update();
-  SceneManager::render();
+  //SceneManager::update();
+  //SceneManager::render();
 }
