@@ -107,9 +107,9 @@ namespace Utility
     x = x / 2048;
     y = y / 2048;
 
-    //Serial.print(x);
-    //Serial.print(", ");
-    //Serial.println(y);
+    // Serial.print(x);
+    // Serial.print(", ");
+    // Serial.println(y);
 
     // apply threshold
     if (abs(x) < threshold && abs(y) < threshold)
@@ -613,6 +613,7 @@ namespace SceneManager
 
   // main menu
   int selected = 0;
+  int last_selected = 0;
   int curser_pos = 0;
 
   // "current" value should correspond to the index + 2 of this list
@@ -627,21 +628,23 @@ namespace SceneManager
     if (current == 0)
     {
       // main menu
-      // calculate curser pos for centerd text
-      curser_pos = 8 - (int)(menu_items[selected].length() / 2);
-      curser_pos = min(max(curser_pos, 1), 7);
+      last_selected = selected;
 
       selected += Utility::get_swich();
       selected %= 4;
 
       selected = min(max(selected, 0), 3);
+
+      // calculate curser pos for centerd text
+      curser_pos = 7 - (int)(menu_items[selected].length() / 2);
+      curser_pos = min(max(curser_pos, 1), 7);
     }
 
     else if (current == 1)
     {
       // pause menu
       // calculate curser pos for pause menu
-      curser_pos = 8 - (int)(menu_items[last_current - 2].length() / 2);
+      curser_pos = 7 - (int)(menu_items[last_current - 2].length() / 2);
       curser_pos = min(max(curser_pos, 1), 7);
     }
 
@@ -697,7 +700,7 @@ namespace SceneManager
     {
       pressed_select = true;
 
-      current = selected + 2;
+      // current = selected + 2;
       lcd.clear();
     }
   }
@@ -708,6 +711,11 @@ namespace SceneManager
     {
       // main menu
       // display selected game
+      if (selected != last_selected)
+      {
+        lcd.clear();
+      }
+
       lcd.setCursor(curser_pos, 1);
       lcd.print(menu_items[selected]);
 
@@ -765,9 +773,6 @@ void setup()
 
 void loop()
 {
-  delay(100);
-  Serial.println(Utility::get_swich());
-
-  //SceneManager::update();
-  //SceneManager::render();
+  SceneManager::update();
+  SceneManager::render();
 }
