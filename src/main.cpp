@@ -631,7 +631,7 @@ namespace SceneManager
       last_selected = selected;
 
       selected += Utility::get_swich();
-      selected %= 4;
+      selected = ((selected % 4) + 4) % 4;
 
       selected = min(max(selected, 0), 3);
 
