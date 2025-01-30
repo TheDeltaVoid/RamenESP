@@ -99,10 +99,12 @@ namespace CustomChar
 // scene manager / main menu
 namespace SceneManager
 {
+	// swicher vars
 	int current = 0;
 	int last_current = 0;
 
 	bool pressed_select = false;
+	bool pressed_home = false;
 
 	// pause menu
 	bool pressed_paused = false;
@@ -212,6 +214,20 @@ namespace SceneManager
 			pressed_select = true;
 
 			current = selected + 2;
+			lcd.clear();
+		}
+
+		// home button
+		if (pressed_home && !digitalRead(MAIN_MENU_PIN))
+		{
+			pressed_home = false;
+		}
+
+		if (digitalRead(MAIN_MENU_PIN) && !pressed_home)
+		{
+			pressed_home = true;
+
+			current = 0;
 			lcd.clear();
 		}
 	}
