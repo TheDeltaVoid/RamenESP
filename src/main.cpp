@@ -200,6 +200,7 @@ namespace SceneManager
 				resume_animation(100);
 				current = last_current;
 				lcd.clear();
+				Games::games[current - 2].resume();
 			}
 		}
 
@@ -264,9 +265,9 @@ namespace SceneManager
 			lcd.print(menu_items[last_current - 2]);
 		}
 
-		else if (current == 2)
+		else if (current > 1)
 		{
-			Games::games[0].render();
+			Games::games[current - 2].render();
 		}
 	}
 }
@@ -276,8 +277,8 @@ void setup()
 	Serial.begin(9600);
 
 	// initialize led strip
-	strip.begin();
-	strip.setBrightness(10);
+	// strip.begin();
+	// strip.setBrightness(10);
 
 	// inialize lcd display
 	lcd.init(I2C_SDA, I2C_SCL);

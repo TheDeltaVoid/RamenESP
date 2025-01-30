@@ -47,6 +47,10 @@ public:
 	virtual void render()
 	{
 	}
+
+	virtual void resume()
+	{
+	}
 };
 
 // all Games
@@ -81,6 +85,11 @@ namespace Games
 		lcd.setCursor(0, 0);
 		lcd.print("im test game");
 	  }
+
+	  void resume() override
+	  {
+	  	// render again after pause menu because display has been cleared
+	  }
 	};
 	*/
 
@@ -93,8 +102,8 @@ namespace Games
 		bool changed;
 
 		// probabilities for map generation (0-100)
-		int enemy_prob = 10;
-		int star_prob = 20;
+		int enemy_prob = 30;
+		int star_prob = 50;
 
 		int player_pos[2];
 
@@ -357,6 +366,12 @@ namespace Games
 					}
 				}
 			}
+		}
+
+		void resume() override
+		{
+			// to re-render after pause menu
+			changed = true;
 		}
 	};
 
