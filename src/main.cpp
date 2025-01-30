@@ -136,6 +136,12 @@ namespace SceneManager
 		"lol",
 		"theoretisch"};
 
+	bool menu_items_background[] = {
+		false,
+		false,
+		false,
+		false};
+
 	void update()
 	{
 		if (current == 0)
@@ -216,6 +222,16 @@ namespace SceneManager
 
 			current = selected + 2;
 			lcd.clear();
+
+			if (!menu_items_background[selected])
+			{
+				menu_items_background[selected] = true;
+			}
+
+			else
+			{
+				Games::games[current - 2].resume();
+			}
 		}
 
 		// home button
