@@ -99,7 +99,7 @@ namespace CustomChar
 // scene manager / main menu
 namespace SceneManager
 {
-	int current = 2;
+	int current = 0;
 	int last_current = 0;
 
 	bool pressed_select = false;
@@ -178,7 +178,7 @@ namespace SceneManager
 			pressed_paused = false;
 		}
 
-		if (digitalRead(PAUSE_PIN) && !pressed_paused && false)
+		if (digitalRead(PAUSE_PIN) && !pressed_paused)
 		{
 			pressed_paused = true;
 
@@ -202,7 +202,7 @@ namespace SceneManager
 		}
 
 		// select button
-		if (pressed_select && !digitalRead(SELECT_PIN) && false)
+		if (pressed_select && !digitalRead(SELECT_PIN))
 		{
 			pressed_select = false;
 		}
@@ -284,6 +284,6 @@ void setup()
 
 void loop()
 {
-	//SceneManager::update();
-	//SceneManager::render();
+	SceneManager::update();
+	SceneManager::render();
 }

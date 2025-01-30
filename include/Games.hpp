@@ -127,43 +127,52 @@ namespace Games
 				map[x][1] = 0;
 			}
 
+			// set current player pos on the map
+			map[player_pos[0]][player_pos[1]] = 1;
+
 			// generate top of the map
 			for (int x = 0; x < 16; x++)
 			{
-				if (random(star_prob) == 0)
+				if (map[x][0] != 1)
 				{
-					map[x][0] = 3;
-				}
+					if (random(star_prob) == 0)
+					{
+						map[x][0] = 3;
+					}
 
-				if (random(enemy_prob) == 0)
-				{
-					map[x][0] = 2;
+					if (random(enemy_prob) == 0)
+					{
+						map[x][0] = 2;
+					}
 				}
 			}
 
 			// generate bottom of the map
 			for (int x = 0; x < 16; x++)
 			{
-				if (random(star_prob) == 0)
+				if (map[x][1] != 1)
 				{
-					map[x][1] = 3;
-				}
+					if (random(star_prob) == 0)
+					{
+						map[x][1] = 3;
+					}
 
-				// makes shure you can go anywhere on the map
-				else if (map[x][0] != 2 && map[max(x - 1, 0)][0] != 2 && map[min(x + 1, 15)][0] != 2)
-				{
-					map[x][1] = 2;
+					// makes shure you can go anywhere on the map
+					else if (map[x][0] != 2 && map[max(x - 1, 0)][0] != 2 && map[min(x + 1, 15)][0] != 2)
+					{
+						map[x][1] = 2;
+					}
 				}
 			}
 		}
 
 		void generateMapWithPlayer()
 		{
-			this->generateMap();
-
 			int *pos = this->randomPos();
 			player_pos[0] = pos[0];
 			player_pos[1] = pos[1];
+
+			this->generateMap();
 		}
 
 		void wonRound()
@@ -230,6 +239,9 @@ namespace Games
 
 			else if (!walked)
 			{
+				// clear the players last pos
+				map[player_pos[0]][player_pos[1]] = 0;
+
 				// update player pos
 				if (direction == "right")
 				{
@@ -272,6 +284,9 @@ namespace Games
 				star_count += 1;
 			}
 
+			// move the player on the map
+			map[player_pos[0]][player_pos[1]] = 1;
+
 			// check if player has won the round
 			bool won = true;
 			for (int x = 0; x < 16; x++)
@@ -312,10 +327,6 @@ namespace Games
 
 		void render() override
 		{
-			Serial.print(player_pos[0]);
-			Serial.print(", ");
-			Serial.println(player_pos[1]);
-
 			// only redraw if something has changed
 			if (changed)
 			{
