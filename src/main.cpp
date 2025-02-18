@@ -13,7 +13,7 @@
 // led strip setup
 const int LED_PIN = 33;
 const int LED_COUNT = 12;
-const int LED_BRIGHTNESS = 10;
+const int LED_BRIGHTNESS = 5;
 
 Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 
