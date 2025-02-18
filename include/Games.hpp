@@ -102,8 +102,8 @@ namespace Games
 		bool changed;
 
 		// probabilities for map generation (0-100)
-		int enemy_prob = 10;
-		int star_prob = 80;
+		int enemy_prob = 40;
+		int star_prob = 60;
 
 		int player_pos[2];
 
