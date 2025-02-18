@@ -113,6 +113,8 @@ namespace Games
 		int level_count;
 		int level_count_gaol;
 
+		bool lost = false;
+
 		// vars for movement
 		String direction;
 		bool walked = false;
@@ -239,6 +241,12 @@ namespace Games
 
 		void update() override
 		{
+			if (lost)
+			{
+				lost = false;
+				this->lostGame();
+			}
+
 			direction = Utility::get_direction();
 
 			if (direction == "center")
@@ -285,12 +293,7 @@ namespace Games
 			{
 				level_count = 0;
 				star_count = 0;
-
-				// show new player pos after death
-				map[player_pos[0]][player_pos[1]] = 1;
-				this->render();
-
-				this->lostGame();
+				lost = true;
 			}
 
 			else if (tile == 3)
