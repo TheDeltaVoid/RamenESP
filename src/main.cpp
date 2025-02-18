@@ -293,8 +293,8 @@ void setup()
 	Serial.begin(9600);
 
 	// initialize led strip
-	// strip.begin();
-	// strip.setBrightness(10);
+	strip.begin();
+	strip.setBrightness(LED_BRIGHTNESS);
 
 	// inialize lcd display
 	lcd.init(I2C_SDA, I2C_SCL);
