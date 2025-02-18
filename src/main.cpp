@@ -131,10 +131,8 @@ namespace SceneManager
 
 	// "current" value should correspond to the index + 2 of this list
 	String menu_items[] = {
-		"test game",
-		"noch game",
-		"lol",
-		"theoretisch"};
+		"Minesweeper",
+		"test game"};
 
 	bool menu_items_background[] = {
 		false,
