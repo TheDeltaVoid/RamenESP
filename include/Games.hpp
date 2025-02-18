@@ -285,7 +285,11 @@ namespace Games
 			{
 				level_count = 0;
 				star_count = 0;
+
+				// show new player pos after death
+				map[player_pos[0]][player_pos[1]] = 1;
 				this->render();
+
 				this->lostGame();
 			}
 
