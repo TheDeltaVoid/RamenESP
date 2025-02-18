@@ -197,6 +197,11 @@ namespace Utility
 			delay(d);
 		}
 	}
+
+	bool chance(int percentage)
+	{
+		return random(0, 100) < percentage;
+	}
 };
 
 #endif

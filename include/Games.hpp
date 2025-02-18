@@ -144,12 +144,12 @@ namespace Games
 			{
 				if (map[x][0] != 1)
 				{
-					if (random(star_prob) == 0)
+					if (Utility::chance(star_prob))
 					{
 						map[x][0] = 3;
 					}
 
-					if (random(enemy_prob) == 0)
+					if (Utility::chance(enemy_prob))
 					{
 						map[x][0] = 2;
 					}
