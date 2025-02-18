@@ -285,6 +285,7 @@ namespace Games
 			{
 				level_count = 0;
 				star_count = 0;
+				this->render();
 				this->lostGame();
 			}
 
