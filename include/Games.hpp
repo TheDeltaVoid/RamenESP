@@ -96,7 +96,8 @@ namespace Games
 	class Shoot : public BaseGame
 	{
 	private:
-	
+		int map[16][2];
+		int player_pos[2];
 
 	public:
 		Shoot()
@@ -106,7 +107,13 @@ namespace Games
 
 		void init() override
 		{
+			player_pos = {2, 0};
 
+			for (int x = 0; x < 16; x++)
+			{
+				map[x][0] = 0;
+				map[x][1] = 0;
+			}
 		}
 
 		void update() override
