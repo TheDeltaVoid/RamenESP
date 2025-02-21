@@ -93,6 +93,38 @@ namespace Games
 	};
 	*/
 
+	class Shoot : public BaseGame
+	{
+	private:
+	
+
+	public:
+		Shoot()
+		{
+			this->init();
+		}
+
+		void init() override
+		{
+
+		}
+
+		void update() override
+		{
+
+		}
+
+		void render() override
+		{
+
+		}
+
+		void resume() override
+		{
+
+		}
+	};
+
 	class LuckyCollector : public BaseGame
 	{
 	private:
