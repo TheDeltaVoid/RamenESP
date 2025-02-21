@@ -118,7 +118,22 @@ namespace Games
 
 		void update() override
 		{
+			std::String direction = Utility::get_direction();
 
+			if (direction != "center")
+			{
+				if (direction == "down") // right (youre supposed to turn the console)
+				{
+					player_pos[1] += 1;
+				}
+
+				if (direction == "up") // left
+				{
+					player_pos[1] -= 1;
+				}
+
+				player_pos[1] = Utility::min(Utility::max(player_pos[1], 0), 1);
+			}
 		}
 
 		void render() override
