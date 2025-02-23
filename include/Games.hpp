@@ -93,6 +93,7 @@ namespace Games
 	};
 	*/
 
+	/*
 	class Shoot : public BaseGame
 	{
 	private:
@@ -146,6 +147,8 @@ namespace Games
 
 		}
 	};
+
+	*/
 
 	class LuckyCollector : public BaseGame
 	{
