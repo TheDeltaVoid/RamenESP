@@ -136,9 +136,9 @@ namespace SceneManager
 
 	bool menu_items_background[] = {
 		false,
-		false,
-		false,
 		false};
+
+	const int menu_items_count = 2;
 
 	void update()
 	{
@@ -148,7 +148,7 @@ namespace SceneManager
 			last_selected = selected;
 
 			selected += Utility::get_swich();
-			selected = ((selected % 4) + 4) % 4;
+			selected = ((selected % menu_items_count) + menu_items_count) % menu_items_count;
 
 			selected = min(max(selected, 0), 3);
 
