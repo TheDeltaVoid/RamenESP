@@ -500,6 +500,15 @@ namespace Games
 
 			selected += Utility::get_swich();
 			selected = ((selected % item_count) + item_count) % item_count;
+
+			if (Utility::is_down())
+			{
+				// reboot
+				if (selected == 0)
+				{
+					ESP.restart();
+				}
+			}
 		}
 
 		void render() override
