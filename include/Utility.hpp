@@ -201,6 +201,7 @@ namespace Utility
 	void drawLED(uint32_t color, int led)
 	{
 		strip.setPixelColor(led, color);
+		strip.show();
 	}
 
 	bool chance(int percentage)
