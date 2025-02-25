@@ -198,7 +198,7 @@ namespace Utility
 		}
 	}
 
-	void drawLED(unit23_t color, int led)
+	void drawLED(uint32_t color, int led)
 	{
 		strip.setPixelColor(led, color);
 	}

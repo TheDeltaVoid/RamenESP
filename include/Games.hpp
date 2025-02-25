@@ -3,7 +3,6 @@
 
 #include <Arduino.h>
 #include <Wire.h>
-#include <string.h>
 
 #include <Adafruit_NeoPixel.h>
 #include <LiquidCrystal_I2C.h>
@@ -119,7 +118,7 @@ namespace Games
 
 		void update() override
 		{
-			std::String direction = Utility::get_direction();
+			String direction = Utility::get_direction();
 
 			if (direction != "center")
 			{
@@ -428,8 +427,8 @@ namespace Games
 			Utility::drawLED(strip.Color(255, 255, 255), 0);
 			Utility::drawLED(strip.Color(255, 255, 255), 5);
 
-			Utility::colorWipe(strip.Color(0, 255, 0), 0, start=1, count=level_count);
-			Utility::colorWipe(strip.Color(255, 0, 0), 0, start=6, count=death_count);
+			Utility::colorWipe(strip.Color(0, 255, 0), 0, 1, level_count);
+			Utility::colorWipe(strip.Color(255, 0, 0), 0, 6, death_count);
 
 			// only redraw if something has changed
 			if (changed)
@@ -473,10 +472,10 @@ namespace Games
 	class System : public BaseGame
 	{
 	private:
-		std::String items;
+		String items[1];
 		int selected;
 		int last_selected;
-		int itme_count;
+		int item_count;
 
 	public:
 		System()
@@ -486,8 +485,7 @@ namespace Games
 
 		void init() override
 		{
-			std::String items = {
-				"Neustart"};
+			items[0] = {"Neustart"};
 
 			selected = 0;
 			last_selected = 0;
@@ -522,13 +520,13 @@ namespace Games
 		}
 	};
 
-	BaseGame *games = {
-		new LuckyCollector()
+	BaseGame *games[] = {
+		new LuckyCollector(),
 		new System()};
 
 	void resetGame(int index)
 	{
-		games[index].init();
+		games[index]->init();
 	}
 }
 
