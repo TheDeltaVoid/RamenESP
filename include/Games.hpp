@@ -194,9 +194,6 @@ namespace Games
 				map[x][1] = 0;
 			}
 
-			// set current player pos on the map
-			map[player_pos[0]][player_pos[1]] = 1;
-
 			// generate top of the map
 			for (int x = 0; x < 16; x++)
 			{
@@ -231,6 +228,9 @@ namespace Games
 					}
 				}
 			}
+
+			// set current player pos on the map
+			map[player_pos[0]][player_pos[1]] = 1;
 		}
 
 		void generateMapWithPlayer()
