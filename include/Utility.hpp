@@ -198,6 +198,11 @@ namespace Utility
 		}
 	}
 
+	void drawLED(unit23_t color, int led)
+	{
+		strip.setPixelColor(led, color);
+	}
+
 	bool chance(int percentage)
 	{
 		return random(0, 100) < percentage;

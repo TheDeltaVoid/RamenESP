@@ -93,7 +93,6 @@ namespace Games
 	};
 	*/
 
-	/*
 	class Shoot : public BaseGame
 	{
 	private:
@@ -148,8 +147,6 @@ namespace Games
 		}
 	};
 
-	*/
-
 	class LuckyCollector : public BaseGame
 	{
 	private:
@@ -169,6 +166,8 @@ namespace Games
 
 		int level_count;
 		int level_count_gaol;
+
+		int death_count = 0;
 
 		bool lost = false;
 
@@ -350,6 +349,8 @@ namespace Games
 			{
 				level_count = 0;
 				star_count = 0;
+
+				death_count += 1;
 				lost = true;
 			}
 
@@ -401,6 +402,9 @@ namespace Games
 
 		void render() override
 		{
+			// display stats on LED ring
+			Utility::drawLED(strip.Color(255, 255, 255), 0);
+
 			// only redraw if something has changed
 			if (changed)
 			{
