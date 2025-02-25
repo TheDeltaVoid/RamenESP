@@ -190,7 +190,7 @@ namespace Utility
 	{
 		strip.fill(strip.Color(0, 0, 0));
 
-		for (int i = start; i < count; i++)
+		for (int i = start; i < count + start; i++)
 		{
 			strip.setPixelColor(i, color);
 			strip.show();
