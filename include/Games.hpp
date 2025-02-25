@@ -424,10 +424,10 @@ namespace Games
 		{
 			// display stats on LED ring
 			Utility::drawLED(strip.Color(255, 255, 255), 0);
-			Utility::drawLED(strip.Color(255, 255, 255), 6);
+			Utility::drawLED(strip.Color(255, 255, 255), 5);
 
-			
-
+			Utility::colorWipe(strip.Color(0, 255, 0), 0, start=1, count=level_count);
+			Utility::colorWipe(strip.Color(255, 0, 0), 0, start=6, count=death_count);
 
 			// only redraw if something has changed
 			if (changed)
