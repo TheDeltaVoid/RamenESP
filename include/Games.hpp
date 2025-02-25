@@ -262,13 +262,11 @@ namespace Games
 			this->generateMapWithPlayer();
 		}
 
-		void lostGame()
+		void lostRound()
 		{
-			Utility::flash(strip.Color(255, 0, 0), 100, 5);
+			Utility::flash(strip.Color(255, 0, 0), 200, 3);
 
-			Utility::blinkText("   LOST  GAME   ", 3, 200);
-
-			this->generateMap();
+			Utility::blinkText("   LOST  GAME   ", 4, 300);
 
 			this->generateMapWithPlayer();
 		}
@@ -300,7 +298,7 @@ namespace Games
 			if (lost)
 			{
 				lost = false;
-				this->lostGame();
+				this->lostRound();
 			}
 
 			direction = Utility::get_direction();
@@ -404,6 +402,10 @@ namespace Games
 		{
 			// display stats on LED ring
 			Utility::drawLED(strip.Color(255, 255, 255), 0);
+			Utility::drawLED(strip.Color(255, 255, 255), 6);
+
+			
+
 
 			// only redraw if something has changed
 			if (changed)
