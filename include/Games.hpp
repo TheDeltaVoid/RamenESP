@@ -167,7 +167,8 @@ namespace Games
 		int level_count;
 		int level_count_gaol;
 
-		int death_count = 0;
+		int death_count;
+		int lives;
 
 		bool lost = false;
 
@@ -289,7 +290,10 @@ namespace Games
 			// reset score
 			star_count = 0;
 			level_count = 0;
-			level_count_gaol = 10;
+			level_count_gaol = 5;
+			
+			death_count = 0;
+			lives = 5;
 
 			// generate random map
 			this->generateMap();
@@ -305,7 +309,17 @@ namespace Games
 			if (lost)
 			{
 				lost = false;
-				this->lostRound();
+
+				if (death_count >= lives)
+				{
+					death_count = 0;
+					this->lostGame();
+				}
+
+				else
+				{
+					this->lostRound();
+				}
 			}
 
 			direction = Utility::get_direction();
@@ -390,6 +404,7 @@ namespace Games
 			{
 				level_count = 0;
 				star_count = 0;
+				death_count = 0;
 				this->wonGame();
 			}
 
