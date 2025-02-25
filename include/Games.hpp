@@ -244,9 +244,7 @@ namespace Games
 
 		void wonRound()
 		{
-			int leds = (int)(level_count / level_count_gaol * LED_COUNT);
-
-			Utility::colorWipe(strip.Color(0, 255, 0), 50, 0, leds);
+			Utility::flash(strip.Color(0, 255, 0), 200, 3);
 
 			Utility::blinkText("   WON  ROUND   ", 3, 200);
 
@@ -266,7 +264,16 @@ namespace Games
 		{
 			Utility::flash(strip.Color(255, 0, 0), 200, 3);
 
-			Utility::blinkText("   LOST  GAME   ", 4, 300);
+			Utility::blinkText("   LOST ROUND   ", 3, 200);
+
+			this->generateMapWithPlayer();
+		}
+
+		void lostGame()
+		{
+			Utility::flash(strip.Color(255, 0, 0), 200, 3);
+
+			Utility::blinkText("    LOST  GAME    ", 3, 200);
 
 			this->generateMapWithPlayer();
 		}
