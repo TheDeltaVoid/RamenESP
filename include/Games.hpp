@@ -93,6 +93,7 @@ namespace Games
 	};
 	*/
 
+	/*
 	class Shoot : public BaseGame
 	{
 	private:
@@ -146,6 +147,7 @@ namespace Games
 
 		}
 	};
+	*/
 
 	class LuckyCollector : public BaseGame
 	{
@@ -467,10 +469,53 @@ namespace Games
 			changed = true;
 		}
 	};
+	
+	class System : public BaseGame
+	{
+	private:
+		std::String items;
+		int selected;
+		int last_selected;
+		int itme_count;
 
-	BaseGame *games =
+	public:
+		System()
 		{
-			new LuckyCollector()};
+			this->init();
+		}
+
+		void init() override
+		{
+			std::String items = {
+				"Neustart"};
+
+			selected = 0;
+			last_selected = 0;
+			item_count = 1;
+		}
+
+		void update() override
+		{
+			last_selected = selected;
+
+			selected += Utility::get_swich();
+			selected = ((selected % item_count) + item_count) % item_count;
+		}
+
+		void render() override
+		{
+			if (selected != last_selected)
+			{
+				lcd.clear();
+				lcd.setCursor(0, 0);
+				lcd.print(items[selected]);
+			}
+		}
+	};
+
+	BaseGame *games = {
+		new LuckyCollector()
+		new System()};
 
 	void resetGame(int index)
 	{

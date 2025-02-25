@@ -132,7 +132,7 @@ namespace SceneManager
 	// "current" value should correspond to the index + 2 of this list
 	String menu_items[] = {
 		"Minesweeper",
-		"test game"};
+		"System"};
 
 	bool menu_items_background[] = {
 		false,
@@ -165,9 +165,9 @@ namespace SceneManager
 			curser_pos = min(max(curser_pos, 1), 7);
 		}
 
-		else if (current == 2)
+		else if (current > 1)
 		{
-			Games::games[0].update();
+			Games::games[current - 2].update();
 		}
 
 		else
