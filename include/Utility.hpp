@@ -198,6 +198,16 @@ namespace Utility
 		}
 	}
 
+	void colorRange(uint32_t color, int start, int count)
+	{
+		for (int i = start; i < count + start; i++)
+		{
+			strip.setPixelColor(i, color);
+		}
+
+		strip.show();
+	}
+
 	void drawLED(uint32_t color, int led)
 	{
 		strip.setPixelColor(led, color);

@@ -424,8 +424,10 @@ namespace Games
 		void render() override
 		{
 			// display stats on LED ring
-			Utility::colorWipe(strip.Color(255, 0, 0), 0, 3, 5);
-			delay(100);
+			Utility::colorRange(strip.Color(255, 0, 0), 3, death_count);
+			Utility::colorRange(strip.Color(255, 0, 0), 12 - level_count, 12);
+			
+			delay(10);
 
 			// only redraw if something has changed
 			if (changed)
