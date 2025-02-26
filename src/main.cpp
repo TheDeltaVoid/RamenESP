@@ -243,6 +243,7 @@ namespace SceneManager
 
 			current = 0;
 			lcd.clear();
+			strip.clear();
 		}
 	}
 
