@@ -186,7 +186,7 @@ namespace Utility
 	}
 
 	// lights up the strip one by one in a color with a certain delay between
-	void colorWipe(uint32_t color, int d, int start = 0, int count = LED_COUNT)
+	void colorWipe(uint32_t color, int d, int start, int count)
 	{
 		strip.fill(strip.Color(0, 0, 0));
 
