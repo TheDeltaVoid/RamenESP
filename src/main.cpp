@@ -316,8 +316,6 @@ void setup()
 
 void loop()
 {
-	Utility::colorWipe(strip.Color(255, 255, 255), 100, 0, 12);
-
 	SceneManager::update();
 	SceneManager::render();
 }
