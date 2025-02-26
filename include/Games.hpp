@@ -488,7 +488,7 @@ namespace Games
 			last_selected = 0;
 			item_count = 1;
 
-			Utility::colorWipe(strip.Color(255, 255, 255), 30);
+			Utility::colorWipe(strip.Color(255, 255, 255), 1);
 		}
 
 		void update() override
