@@ -425,7 +425,7 @@ namespace Games
 		{
 			// display stats on LED ring
 			Utility::colorWipe(strip.Color(255, 0, 0), 0, 3, 5);
-			delay(20);
+			delay(100);
 
 			// only redraw if something has changed
 			if (changed)
@@ -488,7 +488,7 @@ namespace Games
 			last_selected = 0;
 			item_count = 1;
 
-			Utility::colorWipe(strip.Color(255, 255, 255), 1, 0, 12);
+			Utility::colorWipe(strip.Color(255, 255, 255), 100, 0, 12);
 		}
 
 		void update() override
