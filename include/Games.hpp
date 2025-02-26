@@ -425,7 +425,7 @@ namespace Games
 		{
 			// display stats on LED ring
 			Utility::colorRange(strip.Color(255, 0, 0), 3, death_count);
-			Utility::colorRange(strip.Color(255, 0, 0), 12 - level_count, 12);
+			Utility::colorRange(strip.Color(0, 255, 0), 12 - level_count, level_count);
 			
 			delay(10);
 
