@@ -202,7 +202,7 @@ namespace Utility
 	{
 		for (int i = start; i < count + start; i++)
 		{
-			strip.setPixelColor(i, color);
+			strip.setPixelColor(i % LED_COUNT, color);
 		}
 
 		strip.show();
