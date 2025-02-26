@@ -424,8 +424,7 @@ namespace Games
 		void render() override
 		{
 			// display stats on LED ring
-			Utility::drawLED(strip.Color(255, 255, 255), 0);
-			Utility::drawLED(strip.Color(255, 0, 0), 1);
+			Utility::colorWipe(strip.Color(255, 0, 0), 0, 3, 5);
 
 			// only redraw if something has changed
 			if (changed)
