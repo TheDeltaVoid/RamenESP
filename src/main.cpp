@@ -227,7 +227,7 @@ namespace SceneManager
 
 			else
 			{
-				Games::games[current - 2]->resume();
+				Games::games[current - 2]->init();
 			}
 		}
 

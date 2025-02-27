@@ -367,7 +367,6 @@ namespace Games
 			int tile = map[player_pos[0]][player_pos[1]];
 			if (tile == 2)
 			{
-				level_count = 0;
 				star_count = 0;
 
 				death_count += 1;
@@ -427,8 +426,8 @@ namespace Games
 			Utility::drawLED(strip.Color(255, 255, 255), 3);
 			Utility::colorRange(strip.Color(255, 0, 0), 4, death_count);
 
-			// idk what i did
-			Utility::colorRange(strip.Color(0, 255, 0), ((2 - level_count) + LED_COUNT) % LED_COUNT, level_count);
+			// idk what i die345
+			Utility::colorRange(strip.Color(0, 255, 0), ((3 - level_count) + LED_COUNT) % LED_COUNT, level_count);
 			
 			delay(10);
 
